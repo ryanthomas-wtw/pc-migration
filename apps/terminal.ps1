@@ -1,0 +1,1 @@
+wignet install --id Microsoft.WindowsTerminal -e

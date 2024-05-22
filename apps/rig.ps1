@@ -19,3 +19,7 @@ foreach ($version in $R_versions) {
 
 Write-Host "Installing all necessary versions of Rtools"
 rig add rtools
+
+Write-Host "Installing RStudio v 2024.04.1-748"
+Invoke-WebRequest -Uri "https://download1.rstudio.org/electron/windows/RStudio-2024.04.1-748.exe" -OutFile "rstudio-installer.exe"
+Start-Process -Wait -FilePath rstudio-installer.exe -Argument "/silent" -PassThru
