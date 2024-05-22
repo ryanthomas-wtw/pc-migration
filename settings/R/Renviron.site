@@ -1,0 +1,6 @@
+SHELL=/usr/bin/bash
+TERM=xterm-256color
+NO_PROXY=*
+R_LIBS_USER=C:/R/libs/%V
+RENV_PATHS_ROOT=C:/R/renv
+RENV_PATHS_LIBRARY_ROOT=C:/R/renv_project_libs
