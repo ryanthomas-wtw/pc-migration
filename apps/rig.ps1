@@ -1,10 +1,18 @@
-# Download rig
+# Config
+
+$rigInstallerUrl = "https://github.com/r-lib/rig/releases/download/latest/rig-windows-latest.exe"
+
+$rstudioVersion = "2024.04.1-748"
+$rstudioInstallerUrl = "https://download1.rstudio.org/electron/windows/RStudio-${rstudioVersion}.exe"
+
+$rigInstallerPath = "$env:TEMP/rig-installer.exe"
+$rstudioInstallerPath = "$env:TEMP/rstudio-installer.exe"
+
 Write-Host "Installing latest Version of Rig"
 
-Invoke-WebRequest -Uri "https://github.com/r-lib/rig/releases/download/latest/rig-windows-latest.exe" -OutFile "rig-installer.exe"
+Invoke-WebRequest -Uri $rigInstallerUrl -OutFile $rigInstallerPath
 
-
-Start-Process -Wait -FilePath rig-installer.exe -Argument "/silent" -PassThru
+Start-Process -Wait -FilePath $rigInstallerPath -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES"
 
 # Install R versions
 # Define an array of R versions
@@ -17,9 +25,9 @@ foreach ($version in $R_versions) {
     rig install $version
 }
 
-Write-Host "Installing all necessary versions of Rtools"
+#Write-Host "Installing all necessary versions of Rtools"
 rig add rtools
 
-Write-Host "Installing RStudio v 2024.04.1-748"
-Invoke-WebRequest -Uri "https://download1.rstudio.org/electron/windows/RStudio-2024.04.1-748.exe" -OutFile "rstudio-installer.exe"
-Start-Process -Wait -FilePath rstudio-installer.exe -Argument "/silent" -PassThru
+Write-Host "Installing RStudio v ${rstudioVersion}"
+Invoke-WebRequest -Uri $rstudioInstallerUrl -OutFile $rstudioInstallerPath
+Start-Process -Wait -FilePath $rstudioInstallerPath -ArgumentList "/S /v/qn "
