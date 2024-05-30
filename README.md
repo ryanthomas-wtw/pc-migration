@@ -28,3 +28,4 @@ git clone https://github.com/ryanthomas-wtw/pc-migration
 ### Other installations
 
 - Sublime Text (need to manually enter LICENSE key)
+- Matlab
