@@ -8,7 +8,7 @@
 ## Clone this repo to the new pc
 
 ```powershell
-git clone url/to/github/project
+git clone https://github.com/ryanthomas-wtw/pc-migration
 
 ```
 
