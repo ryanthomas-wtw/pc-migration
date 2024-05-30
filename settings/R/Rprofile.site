@@ -6,14 +6,6 @@
 # options(help_type="text")
   options(help_type="html")
 
-# set a site library
-# .Library.site <- file.path(chartr("\\", "/", R.home()), "site-library")
-
-# set a CRAN mirror
-# local({r <- getOption("repos")
-#       r["CRAN"] <- "http://my.local.cran"
-#       options(repos=r)})
-
 # Give a fortune cookie, but only to interactive sessions
 # (This would need the fortunes package to be installed.)
 #  if (interactive())
@@ -21,11 +13,24 @@
 
 local({
         RSPM <- "https://rpackagemanager.crb.willistowerswatson.com/wtwran/latest"
-        #CRAN <- "https://packagemanager.rstudio.com/cran/latest"
-        repos <- c(RSPM = RSPM, CRAN = CRAN)
+        repos <- c(RSPM = RSPM)
 
         # check if I can cannot to RSPM
         rspm_check_url <- paste0(RSPM, "/src/contrib/PACKAGES")
+        
+        # Check if the 'httr' package is installed
+        if (!"httr" %in% installed.packages()) {
+                # Ask the user for consent to install the package
+                message("The 'httr' package is not installed. Do you want to install it? (yes/no)")
+                response <- readline()
+
+                # If the user consents, install the package
+                if (tolower(response) == "yes") {
+                        install.packages("httr")
+                }
+        }
+
+        
         is_rspm_available <- tryCatch(httr::GET(rspm_check_url), error = function(e) NULL)
         if (is.null(is_rspm_available)) {
                 message(
@@ -33,8 +38,6 @@ local({
                 "If you need any WTW internal packages, please ensure you are on the WTW \n",
                 "corporate network and restart R (Ctrl + Shift + F10)."
                 )
-                # remove RSPM
-                repos <- repos[-1]
         }
 
         options(repos = repos)

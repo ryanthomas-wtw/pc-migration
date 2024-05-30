@@ -18,11 +18,24 @@ Start-Process -Wait -FilePath $rigInstallerPath -ArgumentList "/VERYSILENT /SUPP
 # Define an array of R versions
 $R_versions = @("4.1.3", "4.2.3", "4.3.3")
 
+$rprofile_source = "..\settings\Rprofile.site"
+$renviron_source = "..\settings\Renviron.site"
+
 # Iterate over the array
 foreach ($version in $R_versions) {
     # Install the current R version
     Write-Host "Installing R ${version}"
     rig install $version
+    Write-Host "Copying Global Rprofile and Renviron files to R-${vervion}/etc"
+    $rprofile_dest = "C:\Program Files\R\R-${version}\etc\Rprofile.site"
+    $renviron_dest = "C:\Program Files\R\R-${version}\etc\Renviron.site"
+    # copy Rprofile.site
+    Copy-Item -Path $rprofile_source -Destination $rprofile_dest -Force
+    
+    # concat Renviron.site
+    $content1 = Get-Content -Path $renviron_source
+    $content2 = Get-Content -Path $renviron_dest
+    Set-Content -Path $renviron_dest, -Value $content1, $content2    
 }
 
 #Write-Host "Installing all necessary versions of Rtools"
