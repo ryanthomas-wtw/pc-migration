@@ -1,8 +1,30 @@
 # Ryan's PC migration plan
 
-## Request Local Admin Rights on new PC
+## Prerequisite Manual Steps
 
-## Manually Install Git For Windows
+- Request Local Admin Rights
+- Install Git For Windows
 
-## Clone this repo
+## Clone this repo to the new pc
 
+```powershell
+git clone url/to/github/project
+
+```
+
+## Run install_apps script
+
+```powershell
+./install_apps.ps1
+```
+
+## Manual Installations
+
+### From Software Center
+
+- Igloo
+- Notepad++
+
+### Other installations
+
+- Sublime Text (need to manually enter LICENSE key)
