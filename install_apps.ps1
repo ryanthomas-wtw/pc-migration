@@ -1,8 +1,11 @@
 # Define an array of script names
 $script_names = @(
-    "rig.ps1", 
+    "azure.ps1",
+    "docker.ps1"
+    "rstats.ps1", 
     "vscode.ps1", 
-    "terminal.ps1"
+    "terminal.ps1",
+    "web.ps1"
     )
 
 # Iterate over the array
