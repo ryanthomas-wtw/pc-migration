@@ -33,4 +33,4 @@ $settings_dest = "C:\Users\thomasry\AppData\Local\Packages\Microsoft.WindowsTerm
 $settings_src = "../settings/terminal/settings.json"
 
 
-Copy-Item -Path $settings_src -Destination $setings_dest -Force
+Copy-Item -Path $settings_src -Destination $settings_dest -Force
