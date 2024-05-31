@@ -18,8 +18,8 @@ Start-Process -Wait -FilePath $rigInstallerPath -ArgumentList "/VERYSILENT /SUPP
 # Define an array of R versions
 $R_versions = @("4.1.3", "4.2.3", "4.3.3")
 
-$rprofile_source = "..\settings\Rprofile.site"
-$renviron_source = "..\settings\Renviron.site"
+$rprofile_source = "..\settings\R\Rprofile.site"
+$renviron_source = "..\settings\R\Renviron.site"
 
 # Iterate over the array
 foreach ($version in $R_versions) {

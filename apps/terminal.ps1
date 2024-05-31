@@ -28,3 +28,9 @@ Invoke-WebRequest -Uri $url -OutFile $outfile
 
 # Install Ubuntu 22.10
 Add-AppxPackage -Path $outfile2
+
+$settings_dest = "C:\Users\thomasry\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+$settings_src = "../settings/terminal/settings.json"
+
+
+Copy-Item -Path $settings_src -Destination $setings_dest -Force
