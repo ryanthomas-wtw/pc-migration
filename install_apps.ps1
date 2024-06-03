@@ -5,7 +5,8 @@ $script_names = @(
     "rstats.ps1", 
     "vscode.ps1", 
     "terminal.ps1",
-    "web.ps1"
+    "web.ps1",
+    "fonts.ps1"
     )
 
 # Iterate over the array

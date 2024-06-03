@@ -1,4 +1,5 @@
 
+Write-Host "Running web.ps1 script"
 Write-Host "Downloading Firefox"
 # Define the URL for the latest version of Firefox
 $url = "https://download.mozilla.org/?product=firefox-latest&os=win&lang=en-US"

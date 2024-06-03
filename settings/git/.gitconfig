@@ -1,0 +1,18 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Ryan Thomas 
+	email = ryan.thomas@willistowerswatson.com
+[safe]
+	directory = C:/Development/Projects/ip-parameterization
+
+[init]
+	defaultBranch = main
+[http]
+#	sslBackend = schannel
+#	sslcainfo = Path
+#	proxy = http://:@proxy.willis.com/internet_proxy_wtw.pac
+[https]
+#	proxy = http://:@proxy.willis.com/internet_proxy_wtw.pac
+#[credential "http://proxy.willis.com"]
+#	provider = generic

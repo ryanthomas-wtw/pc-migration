@@ -1,3 +1,11 @@
+Write-Host "Running vscode.ps1 script"
+
+# Download and install winget
+$winget_url ="https://github.com/microsoft/winget-cli/releases/download/v1.7.11261/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
+Write-Host "Downloading winget"
+Invoke-WebRequest -Uri $winget_url -OutFile ".\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle"
+Write-Host "Installing winget"
+Add-AppxPackage -Path ".\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle"
 
 Write-Host "Installing VS Code via winget"
 winget install -e --id Microsoft.VisualStudioCode

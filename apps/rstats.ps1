@@ -1,5 +1,5 @@
 # Config
-
+Write-Host "Running rstats.ps1 script"
 $rigInstallerUrl = "https://github.com/r-lib/rig/releases/download/latest/rig-windows-latest.exe"
 
 $rstudioVersion = "2024.04.1-748"

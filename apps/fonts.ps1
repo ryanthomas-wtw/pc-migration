@@ -1,3 +1,4 @@
+Write-Host "Running Fonts.ps1 script"
 # Define the URL to the Fira Code GitHub release
 $url = "https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip"
 
@@ -5,12 +6,14 @@ $url = "https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.
 $download_path = ".\Fira_Code_v5.2.zip"
 
 # Download the Fira Code zip file
+Write-Host "Downloading Fira Code Fonts"
 Invoke-WebRequest -Uri $url -OutFile $download_path
 
 # Extract the zip file
 Expand-Archive -Path $download_path -DestinationPath ".\Fira_Code_v5.2"
 
 # Install the fonts
+Write-Host "Installing Fira Code Fonts"
 $fonts = Get-ChildItem -Path ".\Fira_Code_v5.2\ttf" -Filter "*.ttf"
 foreach ($font in $fonts) {
     # Construct the destination path
